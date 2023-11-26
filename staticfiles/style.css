@@ -1,0 +1,15 @@
+.img-wh{
+    width: 400px;
+}
+
+.img-icon{
+    width: 220px;
+}
+
+a:link {
+    text-decoration:none;
+}
+
+a:visited {
+    text-decoration:none;
+}
