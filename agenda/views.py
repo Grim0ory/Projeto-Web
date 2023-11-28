@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect 
 from django.template import loader
+from django.contrib import messages
 from barbearia.models import Barbeiro
 from barbearia.models import Servico
 from django.contrib.auth.models import User
@@ -31,11 +32,13 @@ def agendamento(request):
         
         agenda = Agenda.objects.filter(data=data, horario=horario).first()
         if agenda:
-            return HttpResponse('Data ou Horario Invalido')
+             messages.error(request, "Erro ao agendar serviço!")
+             return HttpResponseRedirect('/opcoes')
         
         agenda = Agenda(usuario=user, barbeiro=barbeiro, servico=servico, data=data, horario=horario)
         agenda.save()
         
+        messages.success(request, "Agendamento concluido com sucesso!")
         return HttpResponseRedirect('/opcoes')
         
 
