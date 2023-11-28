@@ -9,7 +9,8 @@
 <body>
     <main class="d-flex justify-content-center align-items-center bg-black h-100">
         <div class="border border-info-subtle rounded-4 w-50">
-            <form>
+            <form action="{% url 'cadastro' %}" method="POST">
+                {% csrf_token %}>
                 <div class="mx-auto p-2 w-50">
                     <div class="input-group">
                         <span class="input-group-text" id="basic-addon1">Nome de Usuário</span>
@@ -24,14 +25,8 @@
                 </div>
                 <div class="mx-auto p-2 w-50">
                     <div class="input-group">
-                        <span class="input-group-text" id="basic-addon1">Telefone</span>
-                        <input type="text" class="form-control" placeholder="Digite seu Telefone" name="telefone">
-                    </div>
-                </div>
-                <div class="mx-auto p-2 w-50">
-                    <div class="input-group">
                         <span class="input-group-text" id="basic-addon1">Senha</span>
-                        <input type="text" class="form-control" placeholder="Digite a senha" name="senha">
+                        <input type="password" class="form-control" placeholder="Digite a senha" name="senha">
                     </div>
                 </div>
                 <div class="mx-auto">
