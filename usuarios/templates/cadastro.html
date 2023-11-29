@@ -29,6 +29,13 @@
                         <input type="password" class="form-control" placeholder="Digite a senha" name="senha">
                     </div>
                 </div>
+                {% if messages %}
+                    {% for message in messages %}
+                            <div class="mx-auto text-center bg-danger border border-light rounded w-50 mt-3 mb-3">
+                                <p{% if message.tags %} class="{{ message.tags }} text-light  pt-2 pb-2 mb-0"{% endif %}>{{ message }}</p>
+                            </div>
+                    {% endfor %}
+                {% endif %}
                 <div class="mx-auto">
                     <center>
                         <button class="btn btn-primary" type="submit">Cadastrar</button>
