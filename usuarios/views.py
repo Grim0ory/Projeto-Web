@@ -1,8 +1,8 @@
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.contrib.auth import authenticate
 from django.contrib import messages
+from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.contrib.auth import login as login_django
 from django.contrib.auth import logout as logout_django
@@ -38,7 +38,7 @@ def cadastro(request):
         user.save()
 
         return HttpResponseRedirect('login')
-
+            
 def logout(request):
     logout_django(request)
     return HttpResponseRedirect('../opcoes')
